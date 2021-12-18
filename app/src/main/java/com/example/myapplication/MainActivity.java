@@ -62,17 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    String[] foodNameArray = new String[]{"apple", "avocado", "banana",
-            "strawberry", "grapes", "cherries", "peach", "orange", "coconut", "pineapple"
-            ,"rice 價格:50元"
+    String[] foodNameArray = new String[]{"炒飯","燒鴨飯","咖哩飯","雞肉飯","叉燒飯","燒雞飯","鰻魚飯"
     };
-    int[] foodPhotoIdArray = new int[]{R.drawable.apple, R.drawable.avocado,
-            R.drawable.banana, R.drawable.strawberry,
-            R.drawable.grapes, R.drawable.cherries,
-            R.drawable.peach, R.drawable.orange,
-            R.drawable.coconut, R.drawable.pineapple,
-            R.drawable.rice
-    };
+    int[] foodPhotoIdArray = new int[]{
+            R.drawable.rice,R.drawable.rice1,R.drawable.rice2,R.drawable.rice3,
+            R.drawable.rice4,R.drawable.rice5,R.drawable.rice6};
     private ImageView imgShow;
     private TextView textView1,tv_num;
     private ImageButton ImgBtn_plus,ImgBtn_sub;
@@ -140,12 +134,15 @@ public class MainActivity extends AppCompatActivity {
                 tv_num.setVisibility(View.VISIBLE);
                 btn_AddFood.setVisibility(View.VISIBLE);
                 if(position==0) {
-                    textView1.setText("餐點簡介\n內容");
+                    textView1.setText("餐點名稱:炒飯\n餐點價格:\n食材:米飯、豬肉絲、洋蔥、\n高麗菜、雞蛋");
 
                 }
-                else if(position==1)
-                    textView1.setText("餐點簡介\n內容");
-
+                else if(position==1) {
+                    textView1.setText("餐點名稱:\n餐點價格:\n食材:米飯、豬肉絲、洋蔥、\n高麗菜、雞蛋");
+                }
+                else if(position==2) {
+                    textView1.setText("餐點名稱:咖哩飯\n餐點價格:\n食材:米飯、豬肉切丁、洋蔥、\n胡蘿蔔、馬鈴薯");
+                }
             }
         });
     }
