@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView1,tv_num;
     private ImageButton ImgBtn_plus,ImgBtn_sub;
     private Button btn_AddFood,btn_FoodList,btn_DrinkList,btn_NoodleList,btn_RiceList;
-    int num,image,position;
+    int num,image,price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,15 +132,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        btn_AddFood.setOnClickListener(new View.OnClickListener() {   //按鈕換頁
+
+        btn_AddFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent();
+                intent.setClass(MainActivity.this ,FoodList.class);
+               if(image==0&&num>0){
 
-                if(position==0&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
                     String name="炒飯";
-                    int price = 60*num;
+                    price = 60*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -149,11 +150,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-                else if(position==1&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
+                else if(image==1&&num>0){
+
                     String name="燒鴨飯";
-                    int price = 80*num;
+                    price = 80*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -162,11 +162,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-                else if(position==2&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
+                else if(image==2&&num>0){
+
                     String name="咖哩飯";
-                    int price = 70*num;
+                    price = 70*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -175,11 +174,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-                if(position==3&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
+                if(image==3&&num>0){
+
                     String name="雞肉飯";
-                    int price = 60*num;
+                    price = 60*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -188,11 +186,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-                if(position==4&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
+                else if(image==4&&num>0){
+
                     String name="叉燒飯";
-                    int price = 80*num;
+                    price = 80*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -201,11 +198,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-                if(position==5&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
+                else if(image==5&&num>0){
+
                     String name="燒雞飯";
-                    int price = 80*num;
+                    price = 80*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -214,11 +210,10 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-                if(position==6&&num>0){
-                    Intent intent=new Intent();
-                    intent.setClass(MainActivity.this ,FoodList.class);
+                else if(image==6&&num>0){
+
                     String name="鰻魚飯";
-                    int price = 100*num;
+                    price = 100*num;
                     Bundle bundle = new Bundle();
                     bundle.putString("NAME",name);
                     bundle.putInt("NUM",num);
@@ -231,10 +226,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
-               Toast toast=Toast.makeText(MainActivity.this,"餐點已加入點餐籃!",
+                Toast toast=Toast.makeText(MainActivity.this,"餐點已加入點餐籃!",
                         Toast.LENGTH_SHORT);
                 toast.show();
 
@@ -275,27 +267,33 @@ public class MainActivity extends AppCompatActivity {
                         textView1.setText("餐點名稱:燒鴨飯\n餐點價格:80元\n食材:米飯、鴨肉、洋蔥、\n芥藍菜、雞蛋");
                         num=0;
                         tv_num.setText(" "+num);
+                        image=1;
                         break;
                     case 2:
                         textView1.setText("餐點名稱:咖哩飯\n餐點價格:70元\n食材:米飯、豬肉切丁、洋蔥、\n胡蘿蔔、馬鈴薯");
                         num=0;
+                        image=2;
                         break;
                     case 3:
                         textView1.setText("餐點名稱:雞肉飯\n餐點價格:60元\n食材:米飯、雞肉、小黃瓜、\n紅蔥頭");
                         num=0;
+                        image=3;
                         break;
                     case 4:
                         textView1.setText("餐點名稱:叉燒飯\n餐點價格:80元\n食材:米飯、五花肉、小黃瓜、\n高麗菜、雞蛋");
                         num=0;
+                        image=4;
                         break;
                     case 5:
                         textView1.setText("餐點名稱:燒雞飯\n餐點價格:80元\n食材:米飯、雞肉、洋蔥、\n花椰菜、雞蛋");
                         num=0;
+                        image=5;
                         break;
 
                     case 6:
                         textView1.setText("餐點名稱:鰻魚飯\n餐點價格:100元\n食材:米飯、鰻魚、洋蔥、\n蔥花、雞蛋");
                         num=0;
+                        image=6;
                         break;
 
                 }
@@ -306,3 +304,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
