@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class FoodList extends AppCompatActivity {
     private Button btn_Menu,btn_Pay;
     private TextView TextView2;
-int i;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,51 @@ int i;
             }
         });
         btn_Pay.setOnClickListener(new View.OnClickListener() {   //按鈕返回菜單
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(FoodList.this)
+                        .setTitle("確認視窗")
+                        .setMessage("確定要送出菜單了嗎?")
+                        .setPositiveButton("確定", new
+                                DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Toast toast = Toast.makeText(FoodList.this, "菜單已送出!",
+                                                Toast.LENGTH_LONG);
+                                        toast.show();
+                                        finish();
+                                    }
+                                })
+                        .setNegativeButton("取消", new
+                                DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    }
+                                })
+                        .show();
+            }
+        });
+        String[] s = new String[]{};
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
+        for(int i=0;i<7;i++) {
+            String foodNameArray =bundle.getString("NAME");
+            int num = bundle.getInt("NUM");
+            int price = bundle.getInt("PRICE");
+            s[i] = "餐點:" + foodNameArray + "      " + "數量:" + num + "      " + "價格:" + price;
+            TextView2.setText(s[i]);
+        }
+
+
+
+
+
+        //這裡setText(s[n])
+        //顯示陣列
+
+    }
+}
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(FoodList.this)
