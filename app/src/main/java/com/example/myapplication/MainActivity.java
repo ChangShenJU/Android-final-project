@@ -63,9 +63,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+int price;
     String[] foodNameArray = new String[]{"炒飯","燒鴨飯","咖哩飯","雞肉飯","叉燒飯","燒雞飯","鰻魚飯"
     };
+
     int[] foodPhotoIdArray = new int[]{
             R.drawable.rice,R.drawable.rice1,R.drawable.rice2,R.drawable.rice3,
             R.drawable.rice4,R.drawable.rice5,R.drawable.rice6};
@@ -73,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView1,tv_num;
     private ImageButton ImgBtn_plus,ImgBtn_sub;
     private Button btn_AddFood,btn_FoodList,btn_DrinkList,btn_NoodleList,btn_RiceList;
-    int num,image,price;
+    int num,image;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,22 +143,22 @@ public class MainActivity extends AppCompatActivity {
                 intent.setClass(MainActivity.this ,FoodList.class);
                if(image==0&&num>0){
 
-                    String name="炒飯";
-                    price = 60*num;
+                  String foodNameArray="炒飯";
+                   price = 60*num;
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
+                    bundle.putString("NAME",foodNameArray);
                     bundle.putInt("NUM",num);
-                    bundle.putInt("PRICE",price);
+                    bundle.putInt("PRICE", price);
                     intent.putExtras(bundle);
                     startActivity(intent);
 
                 }
                 else if(image==1&&num>0){
 
-                    String name="燒鴨飯";
-                    price = 80*num;
+                   foodNameArray[1]="燒鴨飯";
+                   price = 80*num;
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
+                    bundle.putString("NAME",foodNameArray[1]);
                     bundle.putInt("NUM",num);
                     bundle.putInt("PRICE",price);
                     intent.putExtras(bundle);
@@ -164,22 +167,22 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(image==2&&num>0){
 
-                    String name="咖哩飯";
-                    price = 70*num;
-                    Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
-                    bundle.putInt("NUM",num);
-                    bundle.putInt("PRICE",price);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
+                   foodNameArray[2]="咖哩飯";
+                   price = 70*num;
+                   Bundle bundle = new Bundle();
+                   bundle.putString("NAME",foodNameArray[2]);
+                   bundle.putInt("NUM",num);
+                   bundle.putInt("PRICE",price);
+                   intent.putExtras(bundle);
+                   startActivity(intent);
 
                 }
                 if(image==3&&num>0){
 
-                    String name="雞肉飯";
+                    foodNameArray[3]="雞肉飯";
                     price = 60*num;
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
+                    bundle.putString("NAME",foodNameArray[3]);
                     bundle.putInt("NUM",num);
                     bundle.putInt("PRICE",price);
                     intent.putExtras(bundle);
@@ -188,10 +191,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(image==4&&num>0){
 
-                    String name="叉燒飯";
+                    foodNameArray[4]="叉燒飯";
                     price = 80*num;
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
+                    bundle.putStringArray("NAME",foodNameArray);
                     bundle.putInt("NUM",num);
                     bundle.putInt("PRICE",price);
                     intent.putExtras(bundle);
@@ -200,10 +203,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(image==5&&num>0){
 
-                    String name="燒雞飯";
+                    foodNameArray[5]="燒雞飯";
                     price = 80*num;
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
+                    bundle.putStringArray("NAME",foodNameArray);
                     bundle.putInt("NUM",num);
                     bundle.putInt("PRICE",price);
                     intent.putExtras(bundle);
@@ -212,10 +215,10 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(image==6&&num>0){
 
-                    String name="鰻魚飯";
-                    price = 100*num;
+                    foodNameArray[6]="鰻魚飯";
+                    price= 100*num;
                     Bundle bundle = new Bundle();
-                    bundle.putString("NAME",name);
+                    bundle.putString("NAME",foodNameArray[6]);
                     bundle.putInt("NUM",num);
                     bundle.putInt("PRICE",price);
                     intent.putExtras(bundle);
@@ -304,4 +307,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
 
